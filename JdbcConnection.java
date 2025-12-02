@@ -134,9 +134,30 @@ public static void update(){
 
 
 public static void delete(){
+	String url= "jdbc:mysql://localhost:3306/jdbc";
+	String name="root";
+	String password="root";
 	
+	Scanner scan=new Scanner(System.in);
+	
+	System.out.print("Enter Student id to DELETE - ");
+	int id=scan.nextInt();						
+	
+	Connection con=DriverManager.getConnection(url,name,password);
+	
+	String query="DELETE FROM STUDENT WHERE RegNo=?";
+	
+	PreparedStatement ps=con.prepareStatement(query);
+	
+	ps.setInt(1, id);
+	
+	int val=ps.executeUpdate();
+	System.out.println(val+" Rows DELETED");
+	
+	con.close();
 }
 
 }
+
 
 
