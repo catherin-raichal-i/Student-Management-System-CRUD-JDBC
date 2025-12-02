@@ -53,7 +53,7 @@ public class JdbcConnection {
 public static void create() throws SQLException{
 	String url= "jdbc:mysql://localhost:3306/jdbc";
 	String name="root";
-	String password="root";
+	String password="";
 	
 	Scanner scan=new Scanner(System.in);
 	System.out.print("Enter Student id - ");
@@ -83,7 +83,7 @@ public static void create() throws SQLException{
 public static void read(){
 	String url= "jdbc:mysql://localhost:3306/jdbc";
 	String name="root";
-	String password="root";
+	String password="";
 	
 	Connection con=DriverManager.getConnection(url,name,password);
 	
@@ -105,7 +105,7 @@ public static void read(){
 public static void update(){
 	String url= "jdbc:mysql://localhost:3306/jdbc";
 	String name="root";
-	String password="root";
+	String password="";
 	
 	Scanner scan=new Scanner(System.in);
 	System.out.print("Enter Student id to UPDATE - ");
@@ -136,7 +136,7 @@ public static void update(){
 public static void delete(){
 	String url= "jdbc:mysql://localhost:3306/jdbc";
 	String name="root";
-	String password="root";
+	String password="";
 	
 	Scanner scan=new Scanner(System.in);
 	
@@ -158,6 +158,7 @@ public static void delete(){
 }
 
 }
+
 
 
 
