@@ -103,6 +103,31 @@ public static void read(){
 
 
 public static void update(){
+	String url= "jdbc:mysql://localhost:3306/jdbc";
+	String name="root";
+	String password="root";
+	
+	Scanner scan=new Scanner(System.in);
+	System.out.print("Enter Student id to UPDATE - ");
+	int id=scan.nextInt();			
+	
+	scan.nextLine();
+	System.out.print("Enter Student new name to UPDATE - ");
+	String stdName=scan.nextLine();			
+
+	Connection con=DriverManager.getConnection(url,name,password);
+	
+	String query="UPDATE STUDENT SET Name=? WHERE RegNo=?";
+	
+	PreparedStatement ps=con.prepareStatement(query);
+	
+	ps.setString(1, stdName);
+	ps.setInt(2, id);
+	
+	int val=ps.executeUpdate();
+	System.out.println(val+" Rows UPDATED");
+	
+	con.close();
 	
 }
 
@@ -113,4 +138,5 @@ public static void delete(){
 }
 
 }
+
 
