@@ -81,7 +81,24 @@ public static void create() throws SQLException{
 
 
 public static void read(){
+	String url= "jdbc:mysql://localhost:3306/jdbc";
+	String name="root";
+	String password="root";
 	
+	Connection con=DriverManager.getConnection(url,name,password);
+	
+	Statement st=con.createStatement();
+	
+	String query="Select * from Student";
+	
+	ResultSet rs=st.executeQuery(query);
+	
+	while(rs.next()) {
+		System.out.print(rs.getInt(1)+"  ");
+		System.out.print(rs.getString(2));
+		System.out.println();
+	}
+	con.close();
 }
 
 
@@ -96,3 +113,4 @@ public static void delete(){
 }
 
 }
+
